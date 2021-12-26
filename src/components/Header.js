@@ -3,7 +3,7 @@ import {Container, Grid} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Player from "./player/Player";
 
-const Header = () => {
+const Header = ({radioUrl}) => {
 
     return (
         <Box>
@@ -56,7 +56,7 @@ const Header = () => {
                 // }
             }}>
                 <div style={{marginTop: '-64px'}}>
-                    <Player/>
+                    <Player radioUrl={radioUrl}/>
                 </div>
             </Container>
         </Box>

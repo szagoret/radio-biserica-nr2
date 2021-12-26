@@ -7,7 +7,7 @@ import {debounce} from 'lodash';
 import {Grid} from "@mui/material";
 
 
-const Player = () => {
+const Player = ({radioUrl}) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [canPLay, setCanPlay] = useState(true);
     const [volume, setVolume] = useState(70);
@@ -73,7 +73,7 @@ const Player = () => {
                 </Grid>
             </Grid>
             <audio ref={player}>
-                <source src="https://c32.radioboss.fm:18394/stream"/>
+                <source src={radioUrl.trim()}/>
             </audio>
         </>
     );

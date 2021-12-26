@@ -2,7 +2,7 @@ import React from "react";
 import {Box, Card, CardActions, CardContent, CardMedia} from "@mui/material";
 import Typography from "@mui/material/Typography";
 
-const Blockquote = () => {
+const Blockquote = ({reference, content}) => {
     return (<Card sx={{
         display: 'flex', marginBottom: '20px'
     }}>
@@ -13,14 +13,11 @@ const Blockquote = () => {
                 <Typography variant="subtitle1" color="textSecondary" sx={{
                     paddingLeft: '13px', borderLeft: '5px solid #3f51b5'
                 }}>
-                    ...dacă poporul Meu, peste care este chemat Numele Meu se va smeri, se va ruga şi va căuta faţa
-                    Mea,
-                    şi se va abate de la căile lui rele - îl voi asculta din ceruri, îi voi ierta păcatul şi-i voi
-                    tămădui ţara.
+                    {content}
                 </Typography>
             </CardContent>
             <CardActions>
-                <a style={{textDecoration: 'none'}} href="https://bible.by/verse/14/7/14/">2 Cronici 7:14</a>
+                <a style={{textDecoration: 'none'}} href="https://bible.by">{reference}</a>
             </CardActions>
         </Box>
         <CardMedia sx={{width: '300px', display: {xs: 'none', sm: 'block'}}} image="images/Bible.jpg"/>

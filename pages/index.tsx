@@ -9,6 +9,8 @@ import {Container} from "@mui/material";
 import {gql} from "@apollo/client";
 import client from "../apollo-client";
 import {CalendarType} from "../src/types";
+import {DefaultSeo} from 'next-seo';
+import Layout from "../src/components/Layout";
 
 const Home: NextPage<{
     calendar: CalendarType,
@@ -23,14 +25,24 @@ const Home: NextPage<{
          radioUrl
      }) => {
         return (
-            <Box sx={{backgroundColor: '#f4f6f8'}}>
-                <Header radioUrl={radioUrl}/>
-                <Container maxWidth="md">
-                    <Blockquote reference={verset.referinta} content={verset.continut}/>
-                    <Calendar calendar={calendar}/>
-                    <Footer telefon={contact.telefon} telefonLink={contact.telefonLink}/>
-                </Container>
-            </Box>
+            <Layout  title = 'Radio Biserica Nr.2 Chisinau'>
+                <DefaultSeo
+                    openGraph={{
+                        title: 'Radio Biserica Nr.2 Chisinau',
+                        type: 'website',
+                        locale: 'ro_Ro',
+                        url: 'https://radiobisericanr2.vercel.app/',
+                        site_name: 'Radio Biserica Nr.2 Chisinau ',
+                    }}/>
+                <Box sx={{backgroundColor: '#f4f6f8'}}>
+                    <Header radioUrl={radioUrl}/>
+                    <Container maxWidth="md">
+                        <Blockquote reference={verset.referinta} content={verset.continut}/>
+                        <Calendar calendar={calendar}/>
+                        <Footer telefon={contact.telefon} telefonLink={contact.telefonLink}/>
+                    </Container>
+                </Box>
+            </Layout>
         );
     };
 
